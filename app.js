@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 import games from './routes/games.router.js'
 import clientes from './routes/clientes.router.js'
-
+import alugueis from './routes/alugueis.router.js'
 dotenv.config()
 
 const app = express();
@@ -13,6 +13,7 @@ app.use(express.json())
 
 app.use(games)
 app.use(clientes)
+app.use(alugueis)
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
