@@ -2,13 +2,17 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
+import games from './routes/games.router.js'
+
 dotenv.config()
 
-const api = express();
-api.use(cors())
-api.use(express.json())
+const app = express();
+app.use(cors())
+app.use(express.json())
+
+app.use(games)
 
 const PORT = process.env.PORT || 5000;
-api.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log("Server running on port " + PORT);
   });
